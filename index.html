@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Meteorológico</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="app" class="container">
+    <h1>Meteorologia - Abril de 2025</h1>
+
+    <div class="card">
+      <h2>Temperatura Média (°C)</h2>
+      <canvas id="tempChart"></canvas>
+    </div>
+
+    <div class="card">
+      <h2>Precipitação Acumulada (mm)</h2>
+      <canvas id="precChart"></canvas>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
