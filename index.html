@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard Meteorológico</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
   <div class="layout">
@@ -16,6 +18,7 @@
       <ul>
         <li><a href="#equipe">Equipe</a></li>
         <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#mapa">Localização</a></li>
       </ul>
     </aside>
 
@@ -39,7 +42,7 @@
           <canvas id="precChart"></canvas>
         </div>
 
-        <!-- Seções adicionais -->
+        <!-- Seções -->
         <section id="equipe" class="card">
           <h3>Equipe</h3>
           <p>Informações sobre os integrantes do laboratório.</p>
@@ -48,6 +51,11 @@
         <section id="projetos" class="card">
           <h3>Projetos</h3>
           <p>Detalhes sobre os projetos de pesquisa em andamento.</p>
+        </section>
+
+        <section id="mapa" class="card">
+          <h3>Localização da Estação Meteorológica</h3>
+          <div id="map" style="height: 400px;"></div>
         </section>
       </div>
     </div>

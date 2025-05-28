@@ -3,6 +3,7 @@ const { createApp, onMounted } = Vue;
 createApp({
   setup() {
     onMounted(() => {
+      // Temperatura
       new Chart(document.getElementById('tempChart'), {
         type: 'bar',
         data: {
@@ -19,6 +20,7 @@ createApp({
         }
       });
 
+      // Precipitação
       new Chart(document.getElementById('precChart'), {
         type: 'line',
         data: {
@@ -37,6 +39,18 @@ createApp({
           scales: { y: { beginAtZero: true } }
         }
       });
+
+      // Mapa
+      const map = L.map('map').setView([32.6509, -16.9080], 13);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a>'
+      }).addTo(map);
+
+      L.marker([32.6509, -16.9080])
+        .addTo(map)
+        .bindPopup('Estação Meteorológica - Funchal')
+        .openPopup();
     });
 
     return {};
