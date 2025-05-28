@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> LabInstru - Manaus</title>
+  <title>Dashboard Meteorológico</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -11,30 +11,51 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
-  <div id="app" class="container">
-    <h2>Dashboard Meteorológico - Manaus</h2>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#mapa">Localização</a></li>
+      </ul>
+    </aside>
 
-    <div class="charts-row">
-      <div class="card">
-        <h3>Temperatura Média (°C)</h3>
-        <canvas id="tempChart"></canvas>
-      </div>
+    <div class="main-content">
+      <header class="topbar">
+        <h1>Laboratório de Instrumentação Meteorológica - LabInstru</h1>
+      </header>
 
-      <div class="card">
-        <h3>Precipitação (mm)</h3>
-        <canvas id="precChart"></canvas>
-      </div>
+      <div id="app" class="container">
+        <h2>Meteorologia - Manaus</h2>
 
-      <div class="card">
-        <h3>Velocidade do Vento (km/h)</h3>
-        <canvas id="ventoChart"></canvas>
+        <label for="ano">Selecione o Ano:</label>
+        <select v-model="anoSelecionado" id="ano">
+          <option value="2024">2024</option>
+          <option value="2023">2023</option>
+        </select>
+
+        <div class="charts-row">
+          <div class="card">
+            <h3>Temperatura Média (°C)</h3>
+            <canvas id="tempChart"></canvas>
+          </div>
+
+          <div class="card">
+            <h3>Precipitação (mm)</h3>
+            <canvas id="precChart"></canvas>
+          </div>
+
+          <div class="card">
+            <h3>Velocidade do Vento (km/h)</h3>
+            <canvas id="ventoChart"></canvas>
+          </div>
+        </div>
+
+        <section id="mapa" class="card">
+          <h3>Localização das Estações Meteorológicas</h3>
+          <div id="map" style="height: 400px;"></div>
+        </section>
       </div>
     </div>
-
-    <section class="card">
-      <h3>Localização da Estação Meteorológica - UEA/EST</h3>
-      <div id="map" style="height: 400px;"></div>
-    </section>
   </div>
 
   <script src="app.js"></script>
