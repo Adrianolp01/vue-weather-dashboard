@@ -1,78 +1,35 @@
-const { createApp, onMounted } = Vue;
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Meteorológico</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="app" class="container">
+    <h2>Meteorologia - Manaus</h2>
 
-createApp({
-  setup() {
-    onMounted(() => {
-      // Temperatura
-      new Chart(document.getElementById('tempChart'), {
-        type: 'bar',
-        data: {
-          labels: ['Jan', 'Fev', 'Mar', 'Abr'],
-          datasets: [{
-            label: 'Temperatura Média (°C)',
-            data: [27.4, 27.6, 27.8, 28.1],
-            backgroundColor: '#ff7043'
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: { y: { beginAtZero: false } }
-        }
-      });
+    <div class="charts-row">
+      <div class="card">
+        <h3>Temperatura Média (°C)</h3>
+        <canvas id="tempChart"></canvas>
+      </div>
 
-      // Precipitação
-      new Chart(document.getElementById('precChart'), {
-        type: 'line',
-        data: {
-          labels: ['Jan', 'Fev', 'Mar', 'Abr'],
-          datasets: [{
-            label: 'Precipitação (mm)',
-            data: [250, 310, 280, 200],
-            borderColor: '#42a5f5',
-            backgroundColor: 'rgba(66,165,245,0.2)',
-            fill: true,
-            tension: 0.4
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: { y: { beginAtZero: true } }
-        }
-      });
+      <div class="card">
+        <h3>Precipitação (mm)</h3>
+        <canvas id="precChart"></canvas>
+      </div>
 
-      // Vento
-      new Chart(document.getElementById('ventoChart'), {
-        type: 'line',
-        data: {
-          labels: ['Jan', 'Fev', 'Mar', 'Abr'],
-          datasets: [{
-            label: 'Velocidade do Vento (km/h)',
-            data: [12, 14, 11, 13],
-            borderColor: '#26a69a',
-            backgroundColor: 'rgba(38,166,154,0.2)',
-            fill: true,
-            tension: 0.4
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: { y: { beginAtZero: true } }
-        }
-      });
+      <div class="card">
+        <h3>Velocidade do Vento (km/h)</h3>
+        <canvas id="ventoChart"></canvas>
+      </div>
+    </div>
+  </div>
 
-      // Mapa Manaus
-      const map = L.map('map').setView([-3.1190, -60.0217], 12);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a>'
-      }).addTo(map);
-
-      L.marker([-3.1190, -60.0217])
-        .addTo(map)
-        .bindPopup('Estação Meteorológica - Manaus')
-        .openPopup();
-    });
-
-    return {};
-  }
-}).mount('#app');
+  <script src="app.js"></script>
+</body>
+</html>

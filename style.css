@@ -1,118 +1,32 @@
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: Arial, sans-serif;
   background: #f5f6fa;
   margin: 0;
-  padding: 0;
-}
-
-.layout {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.sidebar {
-  width: 220px;
-  background-color: #002f5f;
-  color: white;
   padding: 20px;
-  box-sizing: border-box;
-}
-
-.sidebar h2 {
-  margin-bottom: 15px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  margin: 10px 0;
-}
-
-.sidebar a {
-  color: white;
-  text-decoration: none;
-}
-
-.sidebar a:hover {
-  text-decoration: underline;
-}
-
-.main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-}
-
-.topbar {
-  background-color: #003f7f;
-  color: white;
-  padding: 15px;
-  text-align: center;
 }
 
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 20px;
-}
-
-.card {
-  background: white;
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .charts-row {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: space-between;
 }
 
-.charts-row .card {
+.card {
+  background: white;
   flex: 1;
   min-width: 280px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Responsivo */
 @media (max-width: 768px) {
-  .layout {
+  .charts-row {
     flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    text-align: center;
-  }
-
-  .sidebar ul {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .main-content {
-    overflow: visible;
-  }
-
-  .container {
-    padding: 10px;
-  }
-
-  .topbar {
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  .card {
-    margin-top: 15px;
-    padding: 15px;
   }
 }
