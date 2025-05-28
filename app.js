@@ -3,7 +3,7 @@ const { createApp, onMounted } = Vue;
 createApp({
   setup() {
     onMounted(() => {
-      // Temperatura
+      // Gráfico de Temperatura
       new Chart(document.getElementById('tempChart'), {
         type: 'bar',
         data: {
@@ -16,11 +16,13 @@ createApp({
         },
         options: {
           responsive: true,
-          scales: { y: { beginAtZero: false } }
+          scales: {
+            y: { beginAtZero: false }
+          }
         }
       });
 
-      // Precipitação
+      // Gráfico de Precipitação
       new Chart(document.getElementById('precChart'), {
         type: 'line',
         data: {
@@ -36,11 +38,13 @@ createApp({
         },
         options: {
           responsive: true,
-          scales: { y: { beginAtZero: true } }
+          scales: {
+            y: { beginAtZero: true }
+          }
         }
       });
 
-      // Vento
+      // Gráfico de Velocidade do Vento
       new Chart(document.getElementById('ventoChart'), {
         type: 'line',
         data: {
@@ -56,15 +60,17 @@ createApp({
         },
         options: {
           responsive: true,
-          scales: { y: { beginAtZero: true } }
+          scales: {
+            y: { beginAtZero: true }
+          }
         }
       });
 
-      // Mapa Manaus
+      // Mapa com Leaflet
       const map = L.map('map').setView([-3.1190, -60.0217], 12);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a>'
+        attribution: 'Map data © OpenStreetMap'
       }).addTo(map);
 
       L.marker([-3.1190, -60.0217])
