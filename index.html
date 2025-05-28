@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard Meteorológico</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Meteorológico - Manaus</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
   <div id="app" class="container">
-    <h2>Meteorologia - Manaus</h2>
+    <h2>Dashboard Meteorológico - Manaus</h2>
 
     <div class="charts-row">
       <div class="card">
@@ -28,6 +30,11 @@
         <canvas id="ventoChart"></canvas>
       </div>
     </div>
+
+    <section class="card">
+      <h3>Localização da Estação Meteorológica - UEA/EST</h3>
+      <div id="map" style="height: 400px;"></div>
+    </section>
   </div>
 
   <script src="app.js"></script>

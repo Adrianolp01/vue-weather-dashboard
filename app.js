@@ -3,7 +3,7 @@ const { createApp, onMounted } = Vue;
 createApp({
   setup() {
     onMounted(() => {
-      // Gráfico: Temperatura
+      // Temperatura
       new Chart(document.getElementById('tempChart'), {
         type: 'bar',
         data: {
@@ -16,13 +16,11 @@ createApp({
         },
         options: {
           responsive: true,
-          scales: {
-            y: { beginAtZero: false }
-          }
+          scales: { y: { beginAtZero: false } }
         }
       });
 
-      // Gráfico: Precipitação
+      // Precipitação
       new Chart(document.getElementById('precChart'), {
         type: 'line',
         data: {
@@ -38,13 +36,11 @@ createApp({
         },
         options: {
           responsive: true,
-          scales: {
-            y: { beginAtZero: true }
-          }
+          scales: { y: { beginAtZero: true } }
         }
       });
 
-      // Gráfico: Velocidade do Vento
+      // Vento
       new Chart(document.getElementById('ventoChart'), {
         type: 'line',
         data: {
@@ -60,17 +56,14 @@ createApp({
         },
         options: {
           responsive: true,
-          scales: {
-            y: { beginAtZero: true }
-          }
+          scales: { y: { beginAtZero: true } }
         }
       });
 
-      // Mapa: UEA/EST - Manaus
+      // Mapa UEA-EST Manaus
       const map = L.map('map').setView([-3.0989, -60.0167], 16);
-
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a>'
+        attribution: 'Map data © OpenStreetMap'
       }).addTo(map);
 
       L.marker([-3.0989, -60.0167])
