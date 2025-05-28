@@ -3,7 +3,6 @@ const { createApp, onMounted } = Vue;
 createApp({
   setup() {
     onMounted(() => {
-      // Temperatura Média
       new Chart(document.getElementById('tempChart'), {
         type: 'bar',
         data: {
@@ -16,13 +15,10 @@ createApp({
         },
         options: {
           responsive: true,
-          scales: {
-            y: { beginAtZero: true }
-          }
+          scales: { y: { beginAtZero: true } }
         }
       });
 
-      // Precipitação Acumulada
       new Chart(document.getElementById('precChart'), {
         type: 'line',
         data: {
@@ -38,9 +34,7 @@ createApp({
         },
         options: {
           responsive: true,
-          scales: {
-            y: { beginAtZero: true }
-          }
+          scales: { y: { beginAtZero: true } }
         }
       });
     });
