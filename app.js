@@ -7,16 +7,16 @@ createApp({
       new Chart(document.getElementById('tempChart'), {
         type: 'bar',
         data: {
-          labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
+          labels: ['Jan', 'Fev', 'Mar', 'Abr'],
           datasets: [{
             label: 'Temperatura Média (°C)',
-            data: [18.1, 18.3, 19.2, 19.6],
-            backgroundColor: '#0072c6'
+            data: [27.4, 27.6, 27.8, 28.1],
+            backgroundColor: '#ff7043'
           }]
         },
         options: {
           responsive: true,
-          scales: { y: { beginAtZero: true } }
+          scales: { y: { beginAtZero: false } }
         }
       });
 
@@ -24,12 +24,12 @@ createApp({
       new Chart(document.getElementById('precChart'), {
         type: 'line',
         data: {
-          labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
+          labels: ['Jan', 'Fev', 'Mar', 'Abr'],
           datasets: [{
             label: 'Precipitação (mm)',
-            data: [75, 120, 160, 200],
-            borderColor: '#00b0f0',
-            backgroundColor: 'rgba(0,176,240,0.1)',
+            data: [250, 310, 280, 200],
+            borderColor: '#42a5f5',
+            backgroundColor: 'rgba(66,165,245,0.2)',
             fill: true,
             tension: 0.4
           }]
@@ -40,16 +40,36 @@ createApp({
         }
       });
 
-      // Mapa
-      const map = L.map('map').setView([32.6509, -16.9080], 13);
+      // Vento
+      new Chart(document.getElementById('ventoChart'), {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Fev', 'Mar', 'Abr'],
+          datasets: [{
+            label: 'Velocidade do Vento (km/h)',
+            data: [12, 14, 11, 13],
+            borderColor: '#26a69a',
+            backgroundColor: 'rgba(38,166,154,0.2)',
+            fill: true,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+
+      // Mapa Manaus
+      const map = L.map('map').setView([-3.1190, -60.0217], 12);
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a>'
       }).addTo(map);
 
-      L.marker([32.6509, -16.9080])
+      L.marker([-3.1190, -60.0217])
         .addTo(map)
-        .bindPopup('Estação Meteorológica - Funchal')
+        .bindPopup('Estação Meteorológica - Manaus')
         .openPopup();
     });
 
