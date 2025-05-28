@@ -3,7 +3,7 @@ const { createApp, onMounted } = Vue;
 createApp({
   setup() {
     onMounted(() => {
-      // Temperatura
+      // Gráfico: Temperatura
       new Chart(document.getElementById('tempChart'), {
         type: 'bar',
         data: {
@@ -14,10 +14,15 @@ createApp({
             backgroundColor: '#ff7043'
           }]
         },
-        options: { responsive: true }
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: false }
+          }
+        }
       });
 
-      // Precipitação
+      // Gráfico: Precipitação
       new Chart(document.getElementById('precChart'), {
         type: 'line',
         data: {
@@ -31,10 +36,15 @@ createApp({
             tension: 0.4
           }]
         },
-        options: { responsive: true }
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
       });
 
-      // Vento
+      // Gráfico: Velocidade do Vento
       new Chart(document.getElementById('ventoChart'), {
         type: 'line',
         data: {
@@ -48,8 +58,25 @@ createApp({
             tension: 0.4
           }]
         },
-        options: { responsive: true }
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
       });
+
+      // Mapa: UEA/EST - Manaus
+      const map = L.map('map').setView([-3.0989, -60.0167], 16);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a>'
+      }).addTo(map);
+
+      L.marker([-3.0989, -60.0167])
+        .addTo(map)
+        .bindPopup('Estação Meteorológica - UEA/EST - Manaus')
+        .openPopup();
     });
 
     return {};
